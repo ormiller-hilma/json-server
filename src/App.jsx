@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import Home from "./components/Home";
 import Register from "./components/Register";
 import Login from "./components/Login";
+import NotFoundPage from "./components/NotFoundPage";
 
 function App() {
   async function getData() {
@@ -24,7 +25,10 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/home" element={<Home />} />
+          <Route path="/home">
+            <Route index element={<Home />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Routes>
