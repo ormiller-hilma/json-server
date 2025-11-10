@@ -7,21 +7,6 @@ import NotFoundPage from "./pages/NotFoundPage";
 import { UserContext } from "./contexts/UserContx";
 import AlbumsDisplay from "./pages/AlbumsDisplay";
 function App() {
-  async function getData() {
-    try {
-      const response = await fetch("http://localhost:3000/comments");
-
-      if (!response.ok) throw new Error("Couldn't fetch data");
-
-      const data = await response.json();
-      console.log(data);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  // getData();
-
   return (
     <>
       <UserContext>
