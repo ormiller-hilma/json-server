@@ -1,10 +1,10 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router";
-import Home from "./components/Home";
-import Register from "./components/Register";
-import Login from "./components/Login";
-import NotFoundPage from "./components/NotFoundPage";
-
+import Home from "./pages/Home";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import NotFoundPage from "./pages/NotFoundPage";
+import { UserContext } from "./contexts/UserContx";
 function App() {
   async function getData() {
     try {
@@ -23,16 +23,18 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/home">
-            <Route index element={<Home />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Route>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-        </Routes>
-      </BrowserRouter>
+      <UserContext>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/home">
+              <Route index element={<Home />} />
+              <Route path="*" element={<NotFoundPage />} />
+            </Route>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Routes>
+        </BrowserRouter>
+      </UserContext>
     </>
   );
 }
