@@ -27,6 +27,7 @@ function App() {
         <Routes>
           <Route path="/home">
             <Route index element={<Home />} />
+            <Route path="users/:user-id/albums" element={} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
           <Route path="/login" element={<Login />} />
