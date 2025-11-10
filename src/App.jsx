@@ -33,7 +33,7 @@ function App() {
               <Route path="users/:userid/albums" element={<AlbumsDisplay />} />
               <Route path="*" element={<NotFoundPage />} />
             </Route>
-            <Route path="." element={<Login />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
           </Routes>
         </BrowserRouter>
