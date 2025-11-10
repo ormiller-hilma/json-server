@@ -1,10 +1,11 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import NotFoundPage from "./pages/NotFoundPage";
 import { UserContext } from "./contexts/UserContx";
+import AlbumsDisplay from "./pages/AlbumsDisplay";
 function App() {
   async function getData() {
     try {
@@ -26,8 +27,10 @@ function App() {
       <UserContext>
         <BrowserRouter>
           <Routes>
+            <Route path="/" element={<Navigate to="/login" />} />
             <Route path="/home">
               <Route index element={<Home />} />
+              <Route path="users/:userid/albums" element={<AlbumsDisplay />} />
               <Route path="*" element={<NotFoundPage />} />
             </Route>
             <Route path="." element={<Login />} />
