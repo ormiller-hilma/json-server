@@ -26,7 +26,7 @@ function useFetch(url) {
       }
     }
     if (data.length === 0) fetchData();
-  }, [data]);
+  }, [data, url]);
 
   return { data, loading, resetData };
 }
