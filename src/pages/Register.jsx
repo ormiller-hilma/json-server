@@ -13,6 +13,7 @@ function Register() {
     e.preventDefault();
     setError("");
     setSuccess(false);
+
     if (password !== confirmPassword) {
       setError("Passwords do not match");
       return;
@@ -24,18 +25,17 @@ function Register() {
       const check = await fetch(
         `http://localhost:3000/users?username=${username}`
       );
-      if (check.ok) {
+      const existingUsers = await check.json();
+      if (existingUsers.length > 0) {
         throw new Error(
           "Registration failed. Please choose a different username."
         );
       }
+
       const response = await fetch("http://localhost:3000/users", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          username: "john",
-          password: "1234",
-        }),
+        body: JSON.stringify({ username, password }),
       });
 
       if (!response.ok) {
@@ -44,8 +44,8 @@ function Register() {
 
       const data = await response.json();
       console.log("Registration successful:", data);
-      navigate("/login", { replace: true });
       setSuccess(true);
+      navigate("/login", { replace: true });
 
       setUsername("");
       setPassword("");
