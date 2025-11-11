@@ -8,6 +8,7 @@ import { UserContext, UsernameProvider } from "./contexts/UserContx";
 import AlbumsDisplay from "./pages/AlbumsDisplay";
 import UserAlbums from "./pages/UserAlbums";
 import PostDisplay from "./pages/PostDisplay";
+import TodosDisplay from "./pages/TodosDisplay";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/home">
               <Route element={<Home />}>
                 <Route index element={<h1>Home</h1>} />
+                <Route path="todo" element={<TodosDisplay />} />
                 <Route path="users/:userid/posts" element={<PostDisplay />} />
                 <Route path="users/:userid/albums" element={<UserAlbums />} />
                 <Route
