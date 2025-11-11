@@ -1,12 +1,11 @@
 import React, { useContext } from "react";
-import { NavLink, useParams, Outlet } from "react-router";
+import { NavLink, Outlet } from "react-router";
 import { UserContext } from "../contexts/UserContx";
 import LogoutButton from "./LogoutBtn";
 import "../styles/Navbar.css";
 
 function HomeNavbar() {
   const { user } = useContext(UserContext);
-  const { albumid } = useParams();
 
   const userid = user.id || "default-user-id";
 
@@ -18,13 +17,6 @@ function HomeNavbar() {
         <NavLink to="/todo">Todos</NavLink>
         <NavLink to={`users/${userid}/posts`}>Posts</NavLink>
         <LogoutButton />
-        {user && (
-          <div>
-            <NavLink to={`/home/users/${user.user}/albums`}>My Albums</NavLink>
-            <NavLink to={`/home/users/${user.user}/todos`}>My ToDo</NavLink>
-            {albumid && <span>Album {albumid}</span>}{" "}
-          </div>
-        )}
         <br />
       </nav>
     </>

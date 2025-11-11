@@ -1,7 +1,7 @@
 import React from "react";
 import { UserContext } from "../contexts/UserContx";
 import { useState, useContext } from "react";
-import { useNavigate, NavLink } from "react-router";
+import { useNavigate } from "react-router";
 function Login() {
   const navigate = useNavigate();
   const user = useContext(UserContext);
@@ -30,7 +30,8 @@ function Login() {
       if (data[0] === undefined)
         throw new Error("Error during login proccesing");
       console.log("Login successful:", data);
-      user.setUser({ id: data.id, username: username });
+      user.setUser({ id: data[0].id, username: username });
+      console.log(data);
       setSuccess(true);
       navigate("/home", { replace: true });
     } catch (err) {
@@ -42,8 +43,6 @@ function Login() {
   }
   return (
     <div className="login">
-      <NavLink to="/register">Register</NavLink>
-
       <form onSubmit={handleSubmit}>
         <h2>Login</h2>
 
