@@ -4,13 +4,13 @@ import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import NotFoundPage from "./pages/NotFoundPage";
-import { UserContext } from "./contexts/UserContx";
+import { UserContext, UsernameProvider } from "./contexts/UserContx";
 import AlbumsDisplay from "./pages/AlbumsDisplay";
 import UserAlbums from "./pages/UserAlbums";
 function App() {
   return (
     <>
-      <UserContext>
+      <UsernameProvider>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Navigate to="/login" />} />
@@ -30,7 +30,7 @@ function App() {
             <Route path="/register" element={<Register />} />
           </Routes>
         </BrowserRouter>
-      </UserContext>
+      </UsernameProvider>
     </>
   );
 }

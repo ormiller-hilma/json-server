@@ -1,0 +1,37 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "userId": "1",
+      "title": "a title",
+      "content": "blabla",
+      "comments": [
+        { "id": "1", "text": "a comment about post 1" },
+        { "id": "2", "text": "another comment about post 1" }
+      ]
+    }
+  ],
+
+  "albums": [
+    {
+      "id": "1",
+      "userId": "1",
+      "photos": [{ "id": "1", "url": "https//example.jpg" }]
+    }
+  ],
+
+  "users": [
+    {
+      "userId": "1",
+      "username": "b",
+      "password": "123",
+      "todos": [
+        {
+          "id": 2,
+          "title": "quis ut nam facilis et officia qui",
+          "completed": false
+        }
+      ]
+    }
+  ]
+}

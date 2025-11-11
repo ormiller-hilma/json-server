@@ -13,7 +13,7 @@ function AlbumsDisplay() {
 
   return (
     <>
-      <h1>{userid}</h1>
+      <h1>{fetch.data.name}</h1>
 
       {fetch.loading && <h2>Loading...</h2>}
 
