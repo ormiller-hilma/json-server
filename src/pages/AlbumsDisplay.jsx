@@ -1,12 +1,14 @@
 import React from "react";
-import { useLocation, useNavigate, useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import useFetch from "../hooks/UseFetch";
-import { useState } from "react";
 import { Fragment } from "react";
+import { useState } from "react";
 
 function AlbumsDisplay() {
   const { userid, albumid, pageid } = useParams();
   const navigate = useNavigate();
+  const [imageInput, setImageInput] = useState("");
+
   const page = Number(pageid);
   const limit = 4;
 
@@ -49,7 +51,6 @@ function AlbumsDisplay() {
                 replace: true,
               }
             );
-            // setPage((prev) => prev + 1);
             fetch.resetData();
           }}
         >
@@ -67,6 +68,19 @@ function AlbumsDisplay() {
             </Fragment>
           );
         })}
+
+      {!fetch.loading && (
+        <>
+          <br />
+          <input
+            type="text"
+            onChange={(e) => {
+              setImageInput(e.target.value);
+            }}
+          />
+          <button onClick={() => alert(imageInput)}>Submit</button>
+        </>
+      )}
     </>
   );
 }
