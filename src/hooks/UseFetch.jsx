@@ -2,14 +2,19 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 
-function useFetch(url) {
+function useFetch(url, method = "GET", body = "") {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const fetchObject = {
+      method: method,
+    };
+    if (body !== "") fetchData.body = body;
+
     async function fetchData() {
       try {
-        const response = await fetch(url);
+        const response = await fetch(url, fetchObject);
 
         if (!response.ok) throw new Error("Couldn't fetch data");
 
