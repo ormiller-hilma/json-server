@@ -14,7 +14,7 @@ function HomeNavbar() {
       <nav>
         <NavLink to="/home">Home</NavLink>
         <NavLink to={`users/${userid}/albums`}>Albums</NavLink>
-        <NavLink to="/todo">Todos</NavLink>
+        <NavLink to="/home/todo">Todos</NavLink>
         <NavLink to={`users/${userid}/posts`}>Posts</NavLink>
         <LogoutButton />
         <br />
