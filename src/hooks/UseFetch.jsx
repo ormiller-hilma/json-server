@@ -2,13 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 
-function getNestedObject(obj, path) {
-  return path.reduce((current, key) => {
-    return current?.[key];
-  }, obj);
-}
-
-function useFetch(url, objectPath = []) {
+function useFetch(url) {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
 
@@ -20,11 +14,7 @@ function useFetch(url, objectPath = []) {
         if (!response.ok) throw new Error("Couldn't fetch data");
 
         const fetchedData = await response.json();
-        if (objectPath.length === 0) {
-          setData(fetchedData);
-        } else {
-          setData(getNestedObject(fetchedData, objectPath));
-        }
+        setData(fetchedData);
       } catch (error) {
         console.error("Custom error", error);
       } finally {

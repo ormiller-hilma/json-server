@@ -7,6 +7,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import { UserContext, UsernameProvider } from "./contexts/UserContx";
 import AlbumsDisplay from "./pages/AlbumsDisplay";
 import UserAlbums from "./pages/UserAlbums";
+import PostDisplay from "./pages/PostDisplay";
 function App() {
   return (
     <>
@@ -16,10 +17,8 @@ function App() {
             <Route path="/" element={<Navigate to="/login" />} />
             <Route path="/home">
               <Route index element={<Home />} />
-              <Route
-                path="users/:userid/albums"
-                element={<UserAlbums />}
-              ></Route>
+              <Route path="users/:userid/posts" element={<PostDisplay />} />
+              <Route path="users/:userid/albums" element={<UserAlbums />} />
               <Route
                 path="users/:userid/albums/:albumid"
                 element={<AlbumsDisplay />}

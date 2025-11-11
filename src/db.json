@@ -2,49 +2,49 @@
   "posts": [
     {
       "id": "1",
-      "userId": "1",
+      "userid": "1",
       "title": "Exploring the Future of AI",
       "content": "Artificial intelligence continues to evolve, transforming industries and reshaping human interaction with technology."
     },
     {
       "id": "2",
-      "userId": "2",
+      "userid": "2",
       "title": "The Art of Remote Work",
       "content": "Balancing productivity and well-being while working remotely has become a global challenge."
     },
     {
       "id": "3",
-      "userId": "3",
+      "userid": "2",
       "title": "A Beginner’s Guide to Investing",
       "content": "Understanding risk and learning to diversify your portfolio is key to long-term financial health."
     }
   ],
 
   "comments": [
-    { "id": "1", "postId": "1", "text": "Fascinating insights on AI trends!" },
+    { "id": "1", "postid": "1", "text": "Fascinating insights on AI trends!" },
     {
       "id": "2",
-      "postId": "1",
+      "postid": "1",
       "text": "I think the ethical implications are the most important part."
     },
     {
       "id": "3",
-      "postId": "2",
+      "postid": "2",
       "text": "Totally relatable, especially the part about time management."
     },
     {
       "id": "4",
-      "postId": "2",
+      "postid": "2",
       "text": "Remote work gave me freedom, but I miss office chats!"
     },
     {
       "id": "5",
-      "postId": "3",
+      "postid": "3",
       "text": "I started investing after reading this—super helpful!"
     },
     {
       "id": "6",
-      "postId": "3",
+      "postid": "3",
       "text": "Would love a follow-up about crypto investments."
     }
   ],
@@ -52,19 +52,19 @@
   "albums": [
     {
       "id": "1",
-      "userId": "1",
+      "userid": "1",
       "title": "AI and the Future",
       "coverPhoto": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d"
     },
     {
       "id": "2",
-      "userId": "2",
+      "userid": "2",
       "title": "Remote Work Lifestyle",
       "coverPhoto": "https://images.unsplash.com/photo-1519389950473-47ba0277781c"
     },
     {
       "id": "3",
-      "userId": "3",
+      "userid": "3",
       "title": "Investing & Finance",
       "coverPhoto": "https://images.unsplash.com/photo-1559526324-593bc073d938"
     }
@@ -74,7 +74,7 @@
     {
       "id": "1",
       "albumid": "1",
-      "url": "https://media.istockphoto.com/id/1419410282/photo/silent-forest-in-spring-with-beautiful-bright-sun-rays.jpg?s=612x612&w=0&k=20&c=UHeb1pGOw6ozr6utsenXHhV19vW6oiPIxDqhKCS2Llk="
+      "url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085"
     },
     {
       "id": "2",
@@ -98,7 +98,7 @@
     },
     {
       "id": "6",
-      "albumId": "3",
+      "albumid": "3",
       "url": "https://images.unsplash.com/photo-1508387027996-79f3d7f1d73f"
     }
   ],
@@ -112,37 +112,37 @@
   "todos": [
     {
       "id": "2",
-      "userId": "1",
+      "userid": "1",
       "title": "Draft article on quantum computing",
       "completed": false
     },
     {
       "id": "3",
-      "userId": "1",
+      "userid": "1",
       "title": "Review AI ethics guidelines",
       "completed": true
     },
     {
       "id": "4",
-      "userId": "2",
+      "userid": "2",
       "title": "Update home office setup",
       "completed": true
     },
     {
       "id": "5",
-      "userId": "2",
+      "userid": "2",
       "title": "Record productivity podcast episode",
       "completed": false
     },
     {
       "id": "6",
-      "userId": "3",
+      "userid": "3",
       "title": "Write post about market volatility",
       "completed": false
     },
     {
       "id": "7",
-      "userId": "3",
+      "userid": "3",
       "title": "Host investment Q&A session",
       "completed": true
     }

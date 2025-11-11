@@ -7,17 +7,15 @@ function UserAlbums() {
   const location = useLocation();
   const currentPath = location.pathname;
 
-  // const path = ["photos"];
   const fetch = useFetch(`http://localhost:3000/albums?id=${userid}`);
   const albumsArray = fetch.data;
-  console.log(albumsArray);
 
   return (
     <>
       {!fetch.loading &&
         albumsArray.map((album, index) => {
           return (
-            <Link key={index} to={`${currentPath}/${index}`}>
+            <Link key={index} to={`${currentPath}/${albumsArray[index].id}`}>
               {album.title}
             </Link>
           ); // TODO: add proper key
