@@ -6,7 +6,7 @@ function AlbumsDisplay() {
   const { albumid } = useParams();
 
   const fetch = useFetch(
-    `http://localhost:3000/photos?albumid=${albumid}&_page=1&_limit=4`
+    `http://localhost:3000/photos?albumid=${albumid}&_start=1&_limit=4`
   );
   const photoArray = fetch.data;
 
