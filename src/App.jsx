@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router";
+import { BrowserRouter, Routes, Route, Navigate, NavLink } from "react-router";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
@@ -13,6 +13,8 @@ function App() {
     <>
       <UsernameProvider>
         <BrowserRouter>
+          <NavLink to="/login">Login</NavLink>
+          <NavLink to="/register">Register</NavLink>
           <Routes>
             <Route path="/" element={<Navigate to="/login" />} />
             <Route path="/home">

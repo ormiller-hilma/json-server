@@ -19,7 +19,6 @@
       "content": "Understanding risk and learning to diversify your portfolio is key to long-term financial health."
     }
   ],
-
   "comments": [
     { "id": "1", "postid": "1", "text": "Fascinating insights on AI trends!" },
     {
@@ -48,7 +47,6 @@
       "text": "Would love a follow-up about crypto investments."
     }
   ],
-
   "albums": [
     {
       "id": "1",
@@ -69,7 +67,6 @@
       "coverPhoto": "https://images.unsplash.com/photo-1559526324-593bc073d938"
     }
   ],
-
   "photos": [
     {
       "id": "1",
@@ -102,13 +99,28 @@
       "url": "https://images.unsplash.com/photo-1508387027996-79f3d7f1d73f"
     }
   ],
-
   "users": [
-    { "id": "1", "username": "tech_writer", "password": "securePass456" },
-    { "id": "2", "username": "remote_ninja", "password": "workFromHome2025" },
-    { "id": "3", "username": "finance_guru", "password": "moneySmart789" }
+    {
+      "id": "1",
+      "username": "tech_writer",
+      "password": "securePass456"
+    },
+    {
+      "id": "2",
+      "username": "remote_ninja",
+      "password": "workFromHome2025"
+    },
+    {
+      "id": "3",
+      "username": "finance_guru",
+      "password": "moneySmart789"
+    },
+    {
+      "id": "7e3b",
+      "username": "avital_01",
+      "password": "01"
+    }
   ],
-
   "todos": [
     {
       "id": "2",

@@ -1,16 +1,13 @@
 import React from "react";
-import { NavLink, useSearchParams, useNavigate } from "react-router";
-
+import { NavLink } from "react-router";
+import HomeNavbar from "../components/HomeNavbar";
 function Home() {
-  //   const [searchParams, setSearchParams] = useSearchParams();
-  const navigate = useNavigate();
-
-  //   console.log(searchParams.get(""));
-  //   setSearchParams;
   return (
     <>
       <h1>HOME</h1>
-      <button onClick={() => navigate("home")}></button>
+      <div>
+        <HomeNavbar />
+      </div>
     </>
   );
 }
