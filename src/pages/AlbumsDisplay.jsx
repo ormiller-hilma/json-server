@@ -5,11 +5,11 @@ import useFetch from "../hooks/UseFetch";
 function AlbumsDisplay() {
   const { userid, albumid } = useParams();
 
-  const path = [userid, "albums", albumid];
-  const fetch = useFetch(`http://localhost:3000/users`, path);
-  const albumArray = fetch.data.album;
+  const path = [albumid, "photos"];
+  const fetch = useFetch(`http://localhost:3000/albums`, path);
+  const photoArray = fetch.data;
 
-  console.log(albumArray);
+  console.log(photoArray);
 
   return (
     <>
@@ -18,9 +18,9 @@ function AlbumsDisplay() {
       {fetch.loading && <h2>Loading...</h2>}
 
       {!fetch.loading &&
-        albumArray.map((imageSrc, index) => {
+        photoArray.map((photo, index) => {
           // TODO: give proper key
-          return <img key={index} src={imageSrc} alt="" />;
+          return <img key={index} src={photo.url} alt="" />;
         })}
     </>
   );
