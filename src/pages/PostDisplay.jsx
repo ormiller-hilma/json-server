@@ -1,24 +1,40 @@
-import React from "react";
+import React, { Component } from "react";
 import useFetch from "../hooks/UseFetch";
 import { useParams } from "react-router";
+import { Fragment } from "react";
 
 function PostDisplay() {
   const { userid } = useParams();
 
-  const fetch = useFetch(`http://localhost:3000/posts?userid=${userid}`);
-  const data = fetch.data;
+  async function handleDelete(id) {
+    await fetch(`http://localhost:3000/posts/${id}`, { method: "DELETE" });
+  }
 
-  // fix keys:
+  const fetchedData = useFetch(`http://localhost:3000/posts?userid=${userid}`);
+  const data = fetchedData.data;
+
   return (
     <>
-      {fetch.loading && <h2>Loading...</h2>}
-      {!fetch.loading &&
+      {fetchedData.loading && <h2>Loading...</h2>}
+      {/* {!fetchedData.loading && <h1>{postAmount} Posts</h1>} */}
+      {!fetchedData.loading &&
         data.map((post, index) => {
           return (
-            <>
-              <h2 key={`title ${index}`}>{post.title}</h2>
-              <p key={`content ${index}`}>{post.content}</p>
-            </>
+            <Fragment key={`post ${index}`}>
+              <h2>{post.title}</h2>
+              <p>{post.content}</p>
+              <button
+                onClick={
+                  () => {}
+                  // eslint-disable-next-line react-hooks/rules-of-hooks
+                  // useFetch(
+                  //   `http://localhost:3000/posts/${post.id}`, "Delete"
+                  // )
+                }
+              >
+                Delete Post
+              </button>
+            </Fragment>
           );
         })}
     </>
