@@ -8,6 +8,7 @@ import { UserContext, UsernameProvider } from "./contexts/UserContx";
 import AlbumsDisplay from "./pages/AlbumsDisplay";
 import UserAlbums from "./pages/UserAlbums";
 import PostDisplay from "./pages/PostDisplay";
+
 function App() {
   return (
     <>
@@ -16,14 +17,16 @@ function App() {
           <Routes>
             <Route path="/" element={<Navigate to="/login" />} />
             <Route path="/home">
-              <Route index element={<Home />} />
-              <Route path="users/:userid/posts" element={<PostDisplay />} />
-              <Route path="users/:userid/albums" element={<UserAlbums />} />
-              <Route
-                path="users/:userid/albums/:albumid"
-                element={<AlbumsDisplay />}
-              />
-              <Route path="*" element={<NotFoundPage />} />
+              <Route element={<Home />}>
+                <Route index element={<h1>Home</h1>} />
+                <Route path="users/:userid/posts" element={<PostDisplay />} />
+                <Route path="users/:userid/albums" element={<UserAlbums />} />
+                <Route
+                  path="users/:userid/albums/:albumid"
+                  element={<AlbumsDisplay />}
+                />
+                <Route path="*" element={<NotFoundPage />} />
+              </Route>
             </Route>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />

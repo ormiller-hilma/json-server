@@ -20,7 +20,11 @@
     }
   ],
   "comments": [
-    { "id": "1", "postid": "1", "text": "Fascinating insights on AI trends!" },
+    {
+      "id": "1",
+      "postid": "1",
+      "text": "Fascinating insights on AI trends!"
+    },
     {
       "id": "2",
       "postid": "1",
@@ -116,9 +120,9 @@
       "password": "moneySmart789"
     },
     {
-      "id": "7e3b",
-      "username": "avital_01",
-      "password": "01"
+      "id": "ce14",
+      "username": "f",
+      "password": "123"
     }
   ],
   "todos": [
