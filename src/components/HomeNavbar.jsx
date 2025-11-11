@@ -1,12 +1,11 @@
 import React, { useContext } from "react";
-import { NavLink, useParams, Outlet } from "react-router";
+import { NavLink, Outlet } from "react-router";
 import { UserContext } from "../contexts/UserContx";
 import LogoutButton from "./LogoutBtn";
 import "../styles/Navbar.css";
 
 function HomeNavbar() {
   const { user } = useContext(UserContext);
-  const { albumid } = useParams();
 
   const userid = user.id || "default-user-id";
 
