@@ -6,12 +6,13 @@ import { Fragment } from "react";
 function PostDisplay() {
   const { userid } = useParams();
 
-  async function handleDelete(id) {
-    await fetch(`http://localhost:3000/posts/${id}`, { method: "DELETE" });
-  }
-
   const fetchedData = useFetch(`http://localhost:3000/posts?userid=${userid}`);
   const data = fetchedData.data;
+
+  async function handleDelete(id) {
+    await fetch(`http://localhost:3000/posts/${id}`, { method: "DELETE" });
+    fetchedData.resetData();
+  }
 
   return (
     <>
@@ -24,13 +25,9 @@ function PostDisplay() {
               <h2>{post.title}</h2>
               <p>{post.content}</p>
               <button
-                onClick={
-                  () => {}
-                  // eslint-disable-next-line react-hooks/rules-of-hooks
-                  // useFetch(
-                  //   `http://localhost:3000/posts/${post.id}`, "Delete"
-                  // )
-                }
+                onClick={() => {
+                  handleDelete(post.id);
+                }}
               >
                 Delete Post
               </button>

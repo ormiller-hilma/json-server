@@ -2,19 +2,18 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 
-function useFetch(url, method = "GET", body = "") {
-  const [data, setData] = useState({});
+function useFetch(url) {
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchObject = {
-      method: method,
-    };
-    if (body !== "") fetchData.body = body;
+  function resetData() {
+    setData([]);
+  }
 
+  useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch(url, fetchObject);
+        const response = await fetch(url);
 
         if (!response.ok) throw new Error("Couldn't fetch data");
 
@@ -26,10 +25,10 @@ function useFetch(url, method = "GET", body = "") {
         setLoading(false);
       }
     }
-    fetchData();
-  }, []);
+    if (data.length === 0) fetchData();
+  }, [data]);
 
-  return { data, loading };
+  return { data, loading, resetData };
 }
 
 export default useFetch;
