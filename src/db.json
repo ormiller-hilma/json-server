@@ -1,24 +1,22 @@
 {
   "posts": [
     {
-      "id": "1",
-      "userId": "2",
+      "id": "2",
+      "userid": "2",
       "title": "a title",
-      "content": "blabla",
-      "comments": [
-        { "id": "1", "text": "a comment about post 1" },
-        { "id": "2", "text": "another comment about post 1" }
-      ]
+      "content": "blabla"
     },
     {
-      "id": "2",
-      "userId": "2",
-      "title": "a title",
-      "content": "blabla",
-      "comments": [
-        { "id": "1", "text": "a comment about post 1" },
-        { "id": "2", "text": "another comment about post 1" }
-      ]
+      "id": "dd20",
+      "userid": "e26f",
+      "title": "hihik",
+      "content": "eree"
+    },
+    {
+      "id": "875a",
+      "userid": "e26f",
+      "title": "Foe",
+      "content": "hghg"
     }
   ],
   "comments": [
@@ -51,6 +49,18 @@
       "id": "6",
       "postid": "3",
       "text": "Would love a follow-up about crypto investments."
+    },
+    {
+      "id": "8c80",
+      "postid": "dd20",
+      "userid": "e26f",
+      "text": "DDDD"
+    },
+    {
+      "id": "1249",
+      "postid": "dd20",
+      "userid": "e26f",
+      "text": "ff"
     }
   ],
   "albums": [
