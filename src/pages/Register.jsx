@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { UserContext } from "../contexts/UserContx";
-import { useNavigate } from "react-router";
+import { useNavigate, NavLink } from "react-router";
 function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -60,6 +60,8 @@ function Register() {
   return (
     <div>
       <h2>Register</h2>
+
+      <NavLink to="/login">Login</NavLink>
 
       <form onSubmit={handleSubmit}>
         <label>
