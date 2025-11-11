@@ -2,11 +2,11 @@
 "users": {
   "Or": {
     "password": "123",
-    "albums": [1]
+    "albums": [[1, "f", 4], [1, 2, 3]]
   },
     "Blompo": {
     "password": "blompo",
-    "albums": [2]
+    "albums": [[2]]
   }
 }
 }
