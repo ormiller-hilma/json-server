@@ -30,7 +30,7 @@ function Login() {
       if (data[0] === undefined)
         throw new Error("Error during login proccesing");
       console.log("Login successful:", data);
-      user.setUser(username);
+      user.setUser({ id: data.id, username: username });
       setSuccess(true);
       navigate("/home", { replace: true });
     } catch (err) {
