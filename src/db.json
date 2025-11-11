@@ -2,21 +2,23 @@
   "posts": [
     {
       "id": "1",
-      "userid": "1",
-      "title": "Exploring the Future of AI",
-      "content": "Artificial intelligence continues to evolve, transforming industries and reshaping human interaction with technology."
+      "userId": "2",
+      "title": "a title",
+      "content": "blabla",
+      "comments": [
+        { "id": "1", "text": "a comment about post 1" },
+        { "id": "2", "text": "another comment about post 1" }
+      ]
     },
     {
       "id": "2",
-      "userid": "2",
-      "title": "The Art of Remote Work",
-      "content": "Balancing productivity and well-being while working remotely has become a global challenge."
-    },
-    {
-      "id": "3",
-      "userid": "2",
-      "title": "A Beginner’s Guide to Investing",
-      "content": "Understanding risk and learning to diversify your portfolio is key to long-term financial health."
+      "userId": "2",
+      "title": "a title",
+      "content": "blabla",
+      "comments": [
+        { "id": "1", "text": "a comment about post 1" },
+        { "id": "2", "text": "another comment about post 1" }
+      ]
     }
   ],
   "comments": [

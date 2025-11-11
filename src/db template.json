@@ -9,6 +9,16 @@
         { "id": "1", "text": "a comment about post 1" },
         { "id": "2", "text": "another comment about post 1" }
       ]
+    },
+    {
+      "id": "2",
+      "userId": "2",
+      "title": "a title",
+      "content": "blabla",
+      "comments": [
+        { "id": "1", "text": "a comment about post 1" },
+        { "id": "2", "text": "another comment about post 1" }
+      ]
     }
   ],
 
