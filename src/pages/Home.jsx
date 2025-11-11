@@ -6,9 +6,8 @@ import { Outlet } from "react-router";
 function Home() {
   return (
     <>
-      <h1>HOME</h1>
-      <div>{/* <HomeNavbar /> */}</div>
-      {/* <Outlet /> */}
+      <HomeNavbar />
+      <Outlet />
     </>
   );
 }
