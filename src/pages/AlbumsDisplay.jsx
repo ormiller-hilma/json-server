@@ -5,8 +5,7 @@ import useFetch from "../hooks/UseFetch";
 function AlbumsDisplay() {
   const { userid, albumid } = useParams();
 
-  const path = [albumid, "photos"];
-  const fetch = useFetch(`http://localhost:3000/albums`, path);
+  const fetch = useFetch(`http://localhost:3000/photos?albumid=${albumid}`);
   const photoArray = fetch.data;
 
   console.log(photoArray);

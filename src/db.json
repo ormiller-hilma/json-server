@@ -73,27 +73,27 @@
   "photos": [
     {
       "id": "1",
-      "albumId": "1",
-      "url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+      "albumid": "1",
+      "url": "https://media.istockphoto.com/id/1419410282/photo/silent-forest-in-spring-with-beautiful-bright-sun-rays.jpg?s=612x612&w=0&k=20&c=UHeb1pGOw6ozr6utsenXHhV19vW6oiPIxDqhKCS2Llk="
     },
     {
       "id": "2",
-      "albumId": "1",
+      "albumid": "1",
       "url": "https://images.unsplash.com/photo-1581093588401-22b8a0e3b6b1"
     },
     {
       "id": "3",
-      "albumId": "2",
+      "albumid": "2",
       "url": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d"
     },
     {
       "id": "4",
-      "albumId": "2",
+      "albumid": "2",
       "url": "https://images.unsplash.com/photo-1522199710521-72d69614c702"
     },
     {
       "id": "5",
-      "albumId": "3",
+      "albumid": "3",
       "url": "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e"
     },
     {
