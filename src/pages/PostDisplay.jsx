@@ -17,7 +17,6 @@ function PostDisplay() {
   return (
     <>
       {fetchedData.loading && <h2>Loading...</h2>}
-      {/* {!fetchedData.loading && <h1>{postAmount} Posts</h1>} */}
       {!fetchedData.loading &&
         data.map((post, index) => {
           return (

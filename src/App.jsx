@@ -24,7 +24,7 @@ function App() {
                 <Route path="users/:userid/posts" element={<PostDisplay />} />
                 <Route path="users/:userid/albums" element={<UserAlbums />} />
                 <Route
-                  path="users/:userid/albums/:albumid"
+                  path="users/:userid/albums/:albumid/page/:pageid"
                   element={<AlbumsDisplay />}
                 />
                 <Route path="*" element={<NotFoundPage />} />

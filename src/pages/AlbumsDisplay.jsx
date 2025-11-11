@@ -1,15 +1,16 @@
 import React from "react";
-import { useParams } from "react-router";
+import { useLocation, useNavigate, useParams } from "react-router";
 import useFetch from "../hooks/UseFetch";
 import { useState } from "react";
 import { Fragment } from "react";
 
 function AlbumsDisplay() {
-  const { albumid } = useParams();
-  const [page, setPage] = useState(0);
+  const { userid, albumid, pageid } = useParams();
+  const navigate = useNavigate();
+  const page = Number(pageid);
   const limit = 4;
 
-  const start = limit * page;
+  const start = limit * (pageid - 1);
 
   const fetch = useFetch(
     `http://localhost:3000/photos?albumid=${albumid}&_start=${start}&_limit=${limit}`
@@ -23,10 +24,15 @@ function AlbumsDisplay() {
 
       {fetch.loading && <h2>Loading...</h2>}
 
-      {!fetch.loading && page > 0 && (
+      {!fetch.loading && pageid - 1 > 0 && (
         <button
           onClick={() => {
-            setPage((prev) => prev - 1);
+            navigate(
+              `/home/users/${userid}/albums/${albumid}/page/${page - 1}`,
+              {
+                replace: true,
+              }
+            );
             fetch.resetData();
           }}
         >
@@ -34,29 +40,33 @@ function AlbumsDisplay() {
         </button>
       )}
 
-      {!fetch.loading &&
-        photoArray.map((photo, index) => {
-          return (
-            <Fragment key={`${index} ${page}`}>
-              <img
-                src={photo.url}
-                alt="f"
-                style={{ maxWidth: 250, maxHeight: 250 }}
-              />
-            </Fragment>
-          );
-        })}
-
-      {!fetch.loading && (
+      {!fetch.loading && photoArray.length >= limit && (
         <button
           onClick={() => {
-            setPage((prev) => prev + 1);
+            navigate(
+              `/home/users/${userid}/albums/${albumid}/page/${page + 1}`,
+              {
+                replace: true,
+              }
+            );
+            // setPage((prev) => prev + 1);
             fetch.resetData();
           }}
         >
           Next
         </button>
       )}
+
+      <br />
+
+      {!fetch.loading &&
+        photoArray.map((photo, index) => {
+          return (
+            <Fragment key={`${index} ${pageid - 1}`}>
+              <img src={photo.url} style={{ maxWidth: 250, maxHeight: 250 }} />
+            </Fragment>
+          );
+        })}
     </>
   );
 }
