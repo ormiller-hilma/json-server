@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-
+import { UserContext } from "../contexts/UserContx";
+import { useNavigate } from "react-router";
 function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -7,7 +8,7 @@ function Register() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
-
+  const navigate = useNavigate();
   async function handleSubmit(e) {
     e.preventDefault();
     setError("");
@@ -20,14 +21,20 @@ function Register() {
     setLoading(true);
 
     try {
-      const response = await fetch("??", {
+      const check = await fetch(
+        `http://localhost:3000/users?username=${username}`
+      );
+      if (check.ok) {
+        throw new Error(
+          "Registration failed. Please choose a different username."
+        );
+      }
+      const response = await fetch("http://localhost:3000/users", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          username,
-          password,
+          username: "john",
+          password: "1234",
         }),
       });
 
@@ -37,6 +44,7 @@ function Register() {
 
       const data = await response.json();
       console.log("Registration successful:", data);
+      navigate("/login", { replace: true });
       setSuccess(true);
 
       setUsername("");

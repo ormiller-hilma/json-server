@@ -1,7 +1,9 @@
 import React from "react";
 import { UserContext } from "../contexts/UserContx";
 import { useState, useContext } from "react";
+import { useNavigate } from "react-router";
 function Login() {
+  const navigate = useNavigate();
   const user = useContext(UserContext);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -30,6 +32,7 @@ function Login() {
       console.log("Login successful:", data);
       user.setUser(username);
       setSuccess(true);
+      navigate("/home", { replace: true });
     } catch (err) {
       console.error("Login failed:", err);
       setError(err.message);

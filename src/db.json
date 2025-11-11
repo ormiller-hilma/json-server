@@ -4,46 +4,48 @@
       "id": "1",
       "userId": "1",
       "title": "Exploring the Future of AI",
-      "content": "Artificial intelligence continues to evolve, transforming industries and reshaping human interaction with technology.",
-      "comments": [
-        { "id": "1", "text": "Fascinating insights on AI trends!" },
-        {
-          "id": "2",
-          "text": "I think the ethical implications are the most important part."
-        }
-      ]
+      "content": "Artificial intelligence continues to evolve, transforming industries and reshaping human interaction with technology."
     },
     {
       "id": "2",
       "userId": "2",
       "title": "The Art of Remote Work",
-      "content": "Balancing productivity and well-being while working remotely has become a global challenge.",
-      "comments": [
-        {
-          "id": "1",
-          "text": "Totally relatable, especially the part about time management."
-        },
-        {
-          "id": "2",
-          "text": "Remote work gave me freedom, but I miss office chats!"
-        }
-      ]
+      "content": "Balancing productivity and well-being while working remotely has become a global challenge."
     },
     {
       "id": "3",
       "userId": "3",
       "title": "A Beginner’s Guide to Investing",
-      "content": "Understanding risk and learning to diversify your portfolio is key to long-term financial health.",
-      "comments": [
-        {
-          "id": "1",
-          "text": "I started investing after reading this—super helpful!"
-        },
-        {
-          "id": "2",
-          "text": "Would love a follow-up about crypto investments."
-        }
-      ]
+      "content": "Understanding risk and learning to diversify your portfolio is key to long-term financial health."
+    }
+  ],
+
+  "comments": [
+    { "id": "1", "postId": "1", "text": "Fascinating insights on AI trends!" },
+    {
+      "id": "2",
+      "postId": "1",
+      "text": "I think the ethical implications are the most important part."
+    },
+    {
+      "id": "3",
+      "postId": "2",
+      "text": "Totally relatable, especially the part about time management."
+    },
+    {
+      "id": "4",
+      "postId": "2",
+      "text": "Remote work gave me freedom, but I miss office chats!"
+    },
+    {
+      "id": "5",
+      "postId": "3",
+      "text": "I started investing after reading this—super helpful!"
+    },
+    {
+      "id": "6",
+      "postId": "3",
+      "text": "Would love a follow-up about crypto investments."
     }
   ],
 
@@ -51,68 +53,98 @@
     {
       "id": "1",
       "userId": "1",
-      "photos": [
-        { "id": "1", "url": "https://example.com/photos/ai_future.jpg" },
-        { "id": "2", "url": "https://example.com/photos/robot_city.jpg" }
-      ]
+      "title": "AI and the Future",
+      "coverPhoto": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d"
     },
     {
       "id": "2",
       "userId": "2",
-      "photos": [
-        { "id": "1", "url": "https://example.com/photos/workspace_sunset.jpg" },
-        { "id": "2", "url": "https://example.com/photos/laptop_coffee.jpg" }
-      ]
+      "title": "Remote Work Lifestyle",
+      "coverPhoto": "https://images.unsplash.com/photo-1519389950473-47ba0277781c"
     },
     {
       "id": "3",
       "userId": "3",
-      "photos": [
-        { "id": "1", "url": "https://example.com/photos/stock_chart.jpg" },
-        { "id": "2", "url": "https://example.com/photos/financial_growth.jpg" }
-      ]
+      "title": "Investing & Finance",
+      "coverPhoto": "https://images.unsplash.com/photo-1559526324-593bc073d938"
+    }
+  ],
+
+  "photos": [
+    {
+      "id": "1",
+      "albumId": "1",
+      "url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+    },
+    {
+      "id": "2",
+      "albumId": "1",
+      "url": "https://images.unsplash.com/photo-1581093588401-22b8a0e3b6b1"
+    },
+    {
+      "id": "3",
+      "albumId": "2",
+      "url": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d"
+    },
+    {
+      "id": "4",
+      "albumId": "2",
+      "url": "https://images.unsplash.com/photo-1522199710521-72d69614c702"
+    },
+    {
+      "id": "5",
+      "albumId": "3",
+      "url": "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e"
+    },
+    {
+      "id": "6",
+      "albumId": "3",
+      "url": "https://images.unsplash.com/photo-1508387027996-79f3d7f1d73f"
     }
   ],
 
   "users": [
+    { "id": "1", "username": "tech_writer", "password": "securePass456" },
+    { "id": "2", "username": "remote_ninja", "password": "workFromHome2025" },
+    { "id": "3", "username": "finance_guru", "password": "moneySmart789" }
+  ],
+
+  "todos": [
     {
+      "id": "2",
       "userId": "1",
-      "username": "tech_writer",
-      "password": "securePass456",
-      "todos": [
-        {
-          "id": 2,
-          "title": "Draft article on quantum computing",
-          "completed": false
-        },
-        { "id": 3, "title": "Review AI ethics guidelines", "completed": true }
-      ]
+      "title": "Draft article on quantum computing",
+      "completed": false
     },
     {
+      "id": "3",
+      "userId": "1",
+      "title": "Review AI ethics guidelines",
+      "completed": true
+    },
+    {
+      "id": "4",
       "userId": "2",
-      "username": "remote_ninja",
-      "password": "workFromHome2025",
-      "todos": [
-        { "id": 4, "title": "Update home office setup", "completed": true },
-        {
-          "id": 5,
-          "title": "Record productivity podcast episode",
-          "completed": false
-        }
-      ]
+      "title": "Update home office setup",
+      "completed": true
     },
     {
+      "id": "5",
+      "userId": "2",
+      "title": "Record productivity podcast episode",
+      "completed": false
+    },
+    {
+      "id": "6",
       "userId": "3",
-      "username": "finance_guru",
-      "password": "moneySmart789",
-      "todos": [
-        {
-          "id": 6,
-          "title": "Write post about market volatility",
-          "completed": false
-        },
-        { "id": 7, "title": "Host investment Q&A session", "completed": true }
-      ]
+      "title": "Write post about market volatility",
+      "completed": false
+    },
+    {
+      "id": "7",
+      "userId": "3",
+      "title": "Host investment Q&A session",
+      "completed": true
     }
   ]
 }

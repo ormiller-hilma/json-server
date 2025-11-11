@@ -1,12 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router";
-
+import { UserContext } from "../contexts/UserContx";
+import { useContext } from "react";
 function LogoutButton() {
+  const user = useContext(UserContext);
   const navigate = useNavigate();
   function handleLogout() {
-    localStorage.removeItem("username");
     console.log("User logged out");
-    navigate("login");
+    user.setUser("");
+    navigate("/login", { replace: true });
   }
 
   return <button onClick={handleLogout}>Log Out</button>;
