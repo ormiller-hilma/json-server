@@ -1,11 +1,18 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { UserContext } from "../contexts/UserContx";
+import TodoItem from "../components/TodoItem";
+import AddTodo from "../components/AddTodo";
+import TodosFilter from "../components/TodosFilter";
 
 function TodosDisplay() {
   const { user } = useContext(UserContext);
   const [todos, setTodos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+
+  const [filter, setFilter] = useState("all");
+  const [sort, setSort] = useState("");
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     if (!user) return;
@@ -14,7 +21,7 @@ function TodosDisplay() {
       try {
         setLoading(true);
         const response = await fetch(
-          `http://localhost:3000/todos?userid=${user.id}`
+          `http://localhost:3000/todos?userId=${user.id}`
         );
         if (!response.ok) throw new Error("Failed to load todos");
 
@@ -30,45 +37,45 @@ function TodosDisplay() {
     fetchTodos();
   }, [user]);
 
-  async function toggleTodo(todo) {
-    const updatedTodo = { ...todo, completed: !todo.completed };
-    try {
-      const response = await fetch(`http://localhost:3000/todos/${todo.id}`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ completed: updatedTodo.completed }),
-      });
-
-      if (!response.ok) throw new Error("Failed to update todo");
-
-      setTodos((prev) => prev.map((t) => (t.id === todo.id ? updatedTodo : t)));
-    } catch (err) {
-      alert(err.message);
-    }
-  }
-
   if (!user) return <p>Please log in to see your tasks.</p>;
   if (loading) return <p>Loading todos...</p>;
   if (error) return <p style={{ color: "red" }}>{error}</p>;
-  if (todos.length === 0) return <p>No todos found.</p>;
+
+  const filteredTodos = todos
+    .filter((todo) => {
+      if (filter === "completed") return todo.completed;
+      if (filter === "incomplete") return !todo.completed;
+      return true;
+    })
+    .filter((todo) => todo.title.toLowerCase().includes(search.toLowerCase()))
+    .sort((a, b) => {
+      if (sort === "az") return a.title.localeCompare(b.title);
+      if (sort === "za") return b.title.localeCompare(a.title);
+      return 0;
+    });
 
   return (
     <div>
       <h2>{user.username}'s Tasks</h2>
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo.id}>
-            <span onClick={() => toggleTodo(todo)}>{todo.title}</span>
-            <span>
-              {todo.completed ? (
-                <span style={{ color: "green" }}>✔</span>
-              ) : (
-                <span style={{ color: "orange" }}>✖</span>
-              )}
-            </span>
-          </li>
-        ))}
-      </ul>
+
+      <AddTodo user={user} onAdd={setTodos} />
+
+      <TodosFilter
+        filter={filter}
+        setFilter={setFilter}
+        search={search}
+        setSearch={setSearch}
+        sort={sort}
+        setSort={setSort}
+      />
+
+      {filteredTodos.length === 0 ? (
+        <p>No tasks found.</p>
+      ) : (
+        filteredTodos.map((todo) => (
+          <TodoItem key={todo.id} todo={todo} onUpdate={setTodos} />
+        ))
+      )}
     </div>
   );
 }
