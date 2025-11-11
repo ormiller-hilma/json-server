@@ -18,13 +18,6 @@ function HomeNavbar() {
         <NavLink to="/todo">Todos</NavLink>
         <NavLink to={`users/${userid}/posts`}>Posts</NavLink>
         <LogoutButton />
-        {user && (
-          <div>
-            <NavLink to={`/home/users/${user.user}/albums`}>My Albums</NavLink>
-            <NavLink to={`/home/users/${user.user}/todos`}>My ToDo</NavLink>
-            {albumid && <span>Album {albumid}</span>}{" "}
-          </div>
-        )}
         <br />
       </nav>
     </>
