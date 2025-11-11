@@ -3,17 +3,22 @@ import { useParams } from "react-router";
 import useFetch from "../hooks/UseFetch";
 
 function AlbumsDisplay() {
-  const { userid } = useParams();
+  const { userid, albumid } = useParams();
 
-  const data = useFetch(`http://localhost:3000/users`, [userid, "albums"]);
-  const albumsArray = data.data;
-  console.log(albumsArray);
+  const path = [userid, "albums", albumid];
+  const fetch = useFetch(`http://localhost:3000/users`, path);
+  const albumArray = fetch.data;
+
+  //   console.log(albumsArray);
 
   return (
     <>
       <h1>{userid}</h1>
-      {!data.loading &&
-        albumsArray.map((album, index) => {
+
+      {fetch.loading && <h2>Loading...</h2>}
+
+      {!fetch.loading &&
+        albumArray.map((album, index) => {
           return <h2 key={index}>{album}</h2>; // TODO: give proper key
         })}
     </>
