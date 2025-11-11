@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { NavLink, useParams } from "react-router";
+import { NavLink, useParams, Outlet } from "react-router";
 import { UserContext } from "../contexts/UserContx";
 import LogoutButton from "./LogoutBtn";
 
@@ -25,6 +25,8 @@ function HomeNavbar() {
           {albumid && <span>Album {albumid}</span>}{" "}
         </div>
       )}
+      <br />
+      <Outlet />
     </nav>
   );
 }
