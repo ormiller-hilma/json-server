@@ -13,8 +13,6 @@ function App() {
     <>
       <UsernameProvider>
         <BrowserRouter>
-          <NavLink to="/login">Login</NavLink>
-          <NavLink to="/register">Register</NavLink>
           <Routes>
             <Route path="/" element={<Navigate to="/login" />} />
             <Route path="/home">

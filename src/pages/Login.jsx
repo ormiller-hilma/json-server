@@ -1,7 +1,7 @@
 import React from "react";
 import { UserContext } from "../contexts/UserContx";
 import { useState, useContext } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate, NavLink } from "react-router";
 function Login() {
   const navigate = useNavigate();
   const user = useContext(UserContext);
@@ -42,6 +42,8 @@ function Login() {
   }
   return (
     <div className="login">
+      <NavLink to="/register">Register</NavLink>
+
       <form onSubmit={handleSubmit}>
         <h2>Login</h2>
 
