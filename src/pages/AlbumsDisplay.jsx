@@ -7,9 +7,9 @@ function AlbumsDisplay() {
 
   const path = [userid, "albums", albumid];
   const fetch = useFetch(`http://localhost:3000/users`, path);
-  const albumArray = fetch.data;
+  const albumArray = fetch.data.album;
 
-  //   console.log(albumsArray);
+  console.log(albumArray);
 
   return (
     <>
@@ -18,8 +18,9 @@ function AlbumsDisplay() {
       {fetch.loading && <h2>Loading...</h2>}
 
       {!fetch.loading &&
-        albumArray.map((album, index) => {
-          return <h2 key={index}>{album}</h2>; // TODO: give proper key
+        albumArray.map((imageSrc, index) => {
+          // TODO: give proper key
+          return <img key={index} src={imageSrc} alt="" />;
         })}
     </>
   );

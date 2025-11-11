@@ -14,10 +14,10 @@ function UserAlbums() {
   return (
     <>
       {!fetch.loading &&
-        albumsArray.map((key, index) => {
+        albumsArray.map((album, index) => {
           return (
             <Link key={index} to={`${currentPath}/${index}`}>
-              {index}
+              {album.name}
             </Link>
           ); // TODO: add proper key
         })}
