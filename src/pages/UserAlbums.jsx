@@ -24,11 +24,12 @@ function UserAlbums() {
   const { userid } = useParams();
   const location = useLocation();
   const currentPath = location.pathname;
+
   const [albumInput, setAlbumInput] = useState("");
+  const [coverImage, setCoverImage] = useState("");
 
   const fetch = useFetch(`http://localhost:3000/albums?userid=${userid}`);
   const albumsArray = fetch.data;
-  console.log("fetch.data: ", fetch.data);
 
   return (
     <>
@@ -39,6 +40,10 @@ function UserAlbums() {
               <Link to={`${currentPath}/${albumsArray[index].id}/page/1`}>
                 {album.title}
               </Link>
+              <img
+                src={album.coverPhoto}
+                style={{ maxHeight: 150, maxWidth: 150 }}
+              />
               <button
                 onClick={() => {
                   handleDelete(fetch.resetData, album.id);
@@ -58,6 +63,13 @@ function UserAlbums() {
             value={albumInput}
             onChange={(e) => setAlbumInput(e.target.value)}
           />
+          <br />
+          <input
+            type="text"
+            value={coverImage}
+            onChange={(e) => setCoverImage(e.target.value)}
+          />
+          <br />
           <button
             onClick={() => {
               handleAdd(albumInput, userid, fetch.resetData);
