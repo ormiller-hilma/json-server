@@ -1,12 +1,16 @@
 import React from "react";
+import { useContext } from "react";
+import { UserContext } from "../contexts/UserContx";
 
 function UserInfo() {
+  const { user } = useContext(UserContext);
+
   return (
     <>
       <h2>Username:</h2>
-      <p>blalba</p>
+      <p>{user.username}</p>
       <h2>ID:</h2>
-      <p>#132</p>
+      <p>{user.id}</p>
     </>
   );
 }
