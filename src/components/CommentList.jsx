@@ -16,7 +16,7 @@ function CommentList({ postId, currentUser }) {
 
   return (
     <>
-      <ul>
+      <ul className="commentList">
         {!loading &&
           comments.map((comment) => (
             <li key={comment.id}>

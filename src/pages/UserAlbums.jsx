@@ -32,42 +32,44 @@ function UserAlbums() {
 
   return (
     <>
-      {!fetch.loading &&
-        albumsArray.map((album, index) => {
-          return (
-            <Fragment key={index}>
-              <Link to={`${currentPath}/${albumsArray[index].id}/page/1`}>
-                {album.title}
-              </Link>
-              <button
-                onClick={() => {
-                  handleDelete(fetch.resetData, album.id);
-                }}
-              >
-                Delete
-              </button>
-            </Fragment>
-          );
-        })}
+      <div className="userAlbums">
+        {!fetch.loading &&
+          albumsArray.map((album, index) => {
+            return (
+              <Fragment key={index}>
+                <Link to={`${currentPath}/${albumsArray[index].id}/page/1`}>
+                  {album.title}
+                </Link>
+                <button
+                  onClick={() => {
+                    handleDelete(fetch.resetData, album.id);
+                  }}
+                >
+                  Delete
+                </button>
+              </Fragment>
+            );
+          })}
 
-      {!fetch.loading && (
-        <>
-          <br />
-          <input
-            type="text"
-            value={albumInput}
-            onChange={(e) => setAlbumInput(e.target.value)}
-          />
-          <button
-            onClick={() => {
-              handleAdd(albumInput, userid, fetch.resetData);
-              setAlbumInput("");
-            }}
-          >
-            Add Album
-          </button>
-        </>
-      )}
+        {!fetch.loading && (
+          <>
+            <br />
+            <input
+              type="text"
+              value={albumInput}
+              onChange={(e) => setAlbumInput(e.target.value)}
+            />
+            <button
+              onClick={() => {
+                handleAdd(albumInput, userid, fetch.resetData);
+                setAlbumInput("");
+              }}
+            >
+              Add Album
+            </button>
+          </>
+        )}
+      </div>
     </>
   );
 }

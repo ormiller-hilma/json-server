@@ -14,7 +14,7 @@ function AddCommentForm({ postId, currentUser, resetData }) {
   }
 
   return (
-    <div>
+    <div className="addComment">
       <input
         placeholder="Add comment"
         value={text}

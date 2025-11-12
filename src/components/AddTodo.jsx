@@ -37,7 +37,7 @@ function AddTodo({ user, onAdd }) {
   }
 
   return (
-    <div style={{ marginBottom: "1rem" }}>
+    <div className="addTdo">
       <input
         type="text"
         placeholder="Add new task..."

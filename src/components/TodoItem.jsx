@@ -61,14 +61,7 @@ function TodoItem({ todo, onUpdate }) {
   }
 
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        marginBottom: "5px",
-        gap: "10px",
-      }}
-    >
+    <div className="todo">
       <input
         type="checkbox"
         checked={todo.completed}

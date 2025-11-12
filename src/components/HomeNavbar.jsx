@@ -11,7 +11,7 @@ function HomeNavbar() {
 
   return (
     <>
-      <nav>
+      <nav className="NavBar">
         <NavLink to="/home">Home</NavLink>
         <NavLink to={`users/${userid}/albums`}>Albums</NavLink>
         <NavLink to="/home/todo">Todos</NavLink>

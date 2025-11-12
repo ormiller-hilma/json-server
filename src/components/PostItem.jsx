@@ -35,7 +35,7 @@ function PostItem({ post, currentUser, onUpdate }) {
       </div>
 
       {expanded && (
-        <div>
+        <div className="post">
           {currentUser.id === post.userid && (
             <>
               <button onClick={deletePost}>Delete</button>

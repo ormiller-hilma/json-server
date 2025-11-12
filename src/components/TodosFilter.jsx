@@ -2,7 +2,7 @@ import React from "react";
 
 function TodosFilter({ filter, setFilter, search, setSearch, sort, setSort }) {
   return (
-    <div style={{ marginBottom: "1rem", display: "flex", gap: "10px" }}>
+    <div className="todoFilters">
       <input
         type="text"
         placeholder="Search task..."

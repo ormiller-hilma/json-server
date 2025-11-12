@@ -54,7 +54,7 @@ function TodosDisplay() {
     });
 
   return (
-    <div>
+    <div className="todoDisplay">
       <h2>{user.username}'s Tasks</h2>
 
       <AddTodo user={user} onAdd={setTodos} />

@@ -1,6 +1,253 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* ===== GLOBAL RESET ===== */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #f9fafb;
+  color: #222;
+  min-height: 100vh;
+  padding-top: 90px; /* Space for fixed navbar */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.7;
+}
+
+/* ===== FIXED NAVBAR ===== */
+.NavBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #7c3aed; /* purple */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.2rem 0;
+  font-weight: 600;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.NavBar a {
+  color: white;
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.NavBar a:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+.logoutBtn {
+  background-color: #10b981; /* green */
+  border: none;
+  color: white;
+  padding: 0.6rem 1.4rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-left: auto;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.logoutBtn:hover {
+  background-color: #059669;
+  transform: translateY(-2px);
+}
+
+/* ===== LAYOUT ===== */
+.container,
+.todoDisplay,
+.PostDisplay,
+.userAlbums,
+.userInfo {
+  width: 90%;
+  max-width: 900px;
+  margin: 2.5rem auto;
+  padding: 2rem 1rem;
+}
+
+/* ===== HEADINGS ===== */
+h1, h2, h3 {
+  color: #4c1d95; /* deep purple */
+  margin-bottom: 1.5rem;
   text-align: center;
+  letter-spacing: 0.5px;
+}
+
+/* ===== FORMS ===== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  max-width: 500px;
+  padding: 0.8rem 1rem;
+  border: 1px solid #c4b5fd;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: white;
+  transition: all 0.2s;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px #a7f3d0;
+}
+
+/* ===== BUTTONS ===== */
+button {
+  background-color: #7c3aed;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8rem 1.6rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #6d28d9;
+  transform: translateY(-2px);
+}
+
+button:disabled {
+  background-color: #a78bfa;
+  cursor: not-allowed;
+}
+
+/* ===== LIST ITEMS ===== */
+.todo,
+.post,
+.comment {
+  border-left: 5px solid #10b981;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  background: transparent;
+  transition: background-color 0.2s;
+}
+
+.todo:hover,
+.post:hover,
+.comment:hover {
+  background-color: #f3f4f6;
+}
+
+.todo button,
+.post button {
+  margin-top: 0.8rem;
+}
+
+/* ===== SEARCH BAR ===== */
+.searchBar {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.searchBar input {
+  width: 60%;
+}
+
+/* ===== LINKS ===== */
+a {
+ background-color: #10b981; /* green */
+  border: none;
+  color: white;
+  padding: 0.6rem 1.4rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+a:hover {
+  background-color: #f833ff;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 700px) {
+  .NavBar {
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .container,
+  .todoDisplay,
+  .PostDisplay {
+    width: 95%;
+    padding: 1.5rem 1rem;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+/* ===== MODERN CHECKBOX ===== */
+input[type="checkbox"] {
+  /* Remove the default browser style */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  width: 20px;
+  height: 20px;
+  border: 2px solid #7c3aed; /* purple border */
+  border-radius: 6px;
+  background-color: white;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  vertical-align: middle;
+}
+
+/* When checked */
+input[type="checkbox"]:checked {
+  background-color: #10b981; /* green */
+  border-color: #10b981;
+}
+
+/* Checkmark icon (CSS trick) */
+input[type="checkbox"]:checked::after {
+  content: "✓";
+  color: white;
+  font-size: 14px;
+  position: absolute;
+  top: 0;
+  left: 4px;
+  font-weight: bold;
+}
+
+/* Hover + Focus states */
+input[type="checkbox"]:hover {
+  border-color: #6d28d9;
+  box-shadow: 0 0 0 3px #ddd6fe;
+}
+
+input[type="checkbox"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px #a7f3d0;
 }

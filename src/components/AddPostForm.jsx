@@ -17,7 +17,7 @@ function AddPostForm({ user, onAdd }) {
   }
 
   return (
-    <div style={{ marginBottom: "1rem" }}>
+    <div className="addPost">
       <input
         placeholder="Title"
         value={title}

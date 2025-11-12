@@ -31,7 +31,7 @@ function PostDisplay() {
   );
 
   return (
-    <div>
+    <div className="PostDisplay">
       <h2>{user.username}'s Posts</h2>
 
       <label>
