@@ -75,6 +75,9 @@ body {
   max-width: 900px;
   margin: 2.5rem auto;
   padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap:30px;
 }
 
 /* ===== HEADINGS ===== */
@@ -145,8 +148,16 @@ button:disabled {
   margin-bottom: 1.5rem;
   background: transparent;
   transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 30px;
 }
-
+.todoFilters{
+  display: flex;
+  flex-direction: column;
+  gap:30px;
+}
 .todo:hover,
 .post:hover,
 .comment:hover {

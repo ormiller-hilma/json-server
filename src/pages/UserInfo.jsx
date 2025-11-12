@@ -8,7 +8,6 @@ function UserInfo() {
   return (
     <>
       <div className="userInfo">
-        {" "}
         <h2>Username:</h2>
         <p>{user.username}</p>
         <h2>ID:</h2>
