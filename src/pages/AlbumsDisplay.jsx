@@ -4,6 +4,17 @@ import useFetch from "../hooks/UseFetch";
 import { Fragment } from "react";
 import { useState } from "react";
 
+async function handleAdd(data, albumid, resetData) {
+  if (data === "") return;
+  await fetch("http://localhost:3000/photos", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ albumid: albumid, url: data }),
+  });
+
+  resetData();
+}
+
 function AlbumsDisplay() {
   const { userid, albumid, pageid } = useParams();
   const navigate = useNavigate();
@@ -74,11 +85,17 @@ function AlbumsDisplay() {
           <br />
           <input
             type="text"
-            onChange={(e) => {
-              setImageInput(e.target.value);
-            }}
+            value={imageInput}
+            onChange={(e) => setImageInput(e.target.value)}
           />
-          <button onClick={() => alert(imageInput)}>Submit</button>
+          <button
+            onClick={() => {
+              handleAdd(imageInput, albumid, fetch.resetData);
+              setImageInput("");
+            }}
+          >
+            Submit
+          </button>
         </>
       )}
     </>
