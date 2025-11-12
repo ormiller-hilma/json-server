@@ -3,6 +3,7 @@ import { Link, useLocation, useParams } from "react-router";
 import useFetch from "../hooks/UseFetch";
 import { useState } from "react";
 import { Fragment } from "react";
+import "../styles/Album.css";
 
 async function handleAdd(title, userid, coverPhoto, resetData) {
   if (title === "") return;
@@ -42,20 +43,22 @@ function UserAlbums() {
           albumsArray.map((album, index) => {
             return (
               <Fragment key={index}>
-                <Link to={`${currentPath}/${albumsArray[index].id}/page/1`}>
-                  {album.title}
-                </Link>
-                <img
-                  src={album.coverPhoto}
-                  style={{ maxHeight: 150, maxWidth: 150 }}
-                />
-                <button
-                  onClick={() => {
-                    handleDelete(fetch.resetData, album.id);
-                  }}
-                >
-                  Delete
-                </button>
+                <div className="albums">
+                  <Link to={`${currentPath}/${albumsArray[index].id}/page/1`}>
+                    {album.title}
+                  </Link>
+                  <img
+                    src={album.coverPhoto}
+                    style={{ maxHeight: 150, maxWidth: 150 }}
+                  />
+                  <button
+                    onClick={() => {
+                      handleDelete(fetch.resetData, album.id);
+                    }}
+                  >
+                    Delete
+                  </button>
+                </div>
               </Fragment>
             );
           })}
