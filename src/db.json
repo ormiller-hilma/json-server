@@ -105,39 +105,15 @@
       "userid": "3",
       "title": "Investing & Finance",
       "coverPhoto": "https://images.unsplash.com/photo-1559526324-593bc073d938"
+    },
+    {
+      "id": "2e70",
+      "userid": "1",
+      "title": "yaya",
+      "coverPhoto": ""
     }
   ],
   "photos": [
-    {
-      "id": "1",
-      "albumid": "1",
-      "url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085"
-    },
-    {
-      "id": "1f",
-      "albumid": "1",
-      "url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085"
-    },
-    {
-      "id": "1ff",
-      "albumid": "1",
-      "url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085"
-    },
-    {
-      "id": "1fff",
-      "albumid": "1",
-      "url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085"
-    },
-    {
-      "id": "1ffff",
-      "albumid": "1",
-      "url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085"
-    },
-    {
-      "id": "2f",
-      "albumid": "1",
-      "url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085"
-    },
     {
       "id": "2ff",
       "albumid": "1",
@@ -162,6 +138,16 @@
       "id": "6",
       "albumid": "3",
       "url": "https://images.unsplash.com/photo-1508387027996-79f3d7f1d73f"
+    },
+    {
+      "id": "c64a",
+      "albumid": "1",
+      "url": "https://lh3.google.com/u/0/d/1zECvKlOVqjCc2-SRe0YOo_g4YtrSfNfI=w1300-h648-iv1?auditContext=thumbnail&auditContext=forDisplay"
+    },
+    {
+      "id": "1acb",
+      "albumid": "1",
+      "url": "https://lh3.google.com/u/0/d/1zECvKlOVqjCc2-SRe0YOo_g4YtrSfNfI=w1300-h648-iv1?auditContext=thumbnail&auditContext=forDisplay"
     }
   ],
   "users": [

@@ -16,6 +16,7 @@ function HomeNavbar() {
         <NavLink to={`users/${userid}/albums`}>Albums</NavLink>
         <NavLink to="/home/todo">Todos</NavLink>
         <NavLink to={`users/${userid}/posts`}>Posts</NavLink>
+        <NavLink to={`users/${userid}/info`}>User Info</NavLink>
         <LogoutButton />
         <br />
       </nav>
