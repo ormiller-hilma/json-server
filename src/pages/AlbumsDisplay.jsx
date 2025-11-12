@@ -28,8 +28,13 @@ function AlbumsDisplay() {
   const fetch = useFetch(
     `http://localhost:3000/photos?albumid=${albumid}&_start=${start}&_limit=${limit}`
   );
-
   const photoArray = fetch.data;
+
+  const nextFetch = useFetch(
+    `http://localhost:3000/photos?albumid=${albumid}&_start=${
+      start + limit
+    }&_limit=${limit}`
+  );
 
   return (
     <>
@@ -53,21 +58,25 @@ function AlbumsDisplay() {
         </button>
       )}
 
-      {!fetch.loading && photoArray.length >= limit && (
-        <button
-          onClick={() => {
-            navigate(
-              `/home/users/${userid}/albums/${albumid}/page/${page + 1}`,
-              {
-                replace: true,
-              }
-            );
-            fetch.resetData();
-          }}
-        >
-          Next
-        </button>
-      )}
+      {!fetch.loading &&
+        photoArray.length >= limit &&
+        !nextFetch.loading &&
+        nextFetch.data.length !== 0 && (
+          <button
+            onClick={() => {
+              navigate(
+                `/home/users/${userid}/albums/${albumid}/page/${page + 1}`,
+                {
+                  replace: true,
+                }
+              );
+              fetch.resetData();
+              nextFetch.resetData();
+            }}
+          >
+            Next
+          </button>
+        )}
 
       <br />
 
