@@ -85,6 +85,7 @@ function AlbumsDisplay() {
           return (
             <Fragment key={`${index} ${pageid - 1}`}>
               <img src={photo.url} style={{ maxWidth: 250, maxHeight: 250 }} />
+              {/* <button onClick={}>Delete</button> */}
             </Fragment>
           );
         })}

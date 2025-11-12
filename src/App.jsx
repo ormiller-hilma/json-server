@@ -4,11 +4,12 @@ import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import NotFoundPage from "./pages/NotFoundPage";
-import { UserContext, UsernameProvider } from "./contexts/UserContx";
+import { UsernameProvider } from "./contexts/UserContx";
 import AlbumsDisplay from "./pages/AlbumsDisplay";
 import UserAlbums from "./pages/UserAlbums";
 import PostDisplay from "./pages/PostDisplay";
 import TodosDisplay from "./pages/TodosDisplay";
+import UserInfo from "./pages/UserInfo";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
                 <Route path="todo" element={<TodosDisplay />} />
                 <Route path="users/:userid/posts" element={<PostDisplay />} />
                 <Route path="users/:userid/albums" element={<UserAlbums />} />
+                <Route path="users/:userid/info" element={<UserInfo />} />
                 <Route
                   path="users/:userid/albums/:albumid/page/:pageid"
                   element={<AlbumsDisplay />}
