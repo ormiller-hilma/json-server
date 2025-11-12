@@ -4,12 +4,16 @@ import useFetch from "../hooks/UseFetch";
 import { useState } from "react";
 import { Fragment } from "react";
 
-async function handleAdd(title, userid, resetData) {
+async function handleAdd(title, userid, coverPhoto, resetData) {
   if (title === "") return;
   await fetch("http://localhost:3000/albums", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ userid: userid, title: title, coverPhoto: "" }),
+    body: JSON.stringify({
+      userid: userid,
+      title: title,
+      coverPhoto: coverPhoto,
+    }),
   });
 
   resetData();
@@ -72,8 +76,9 @@ function UserAlbums() {
           <br />
           <button
             onClick={() => {
-              handleAdd(albumInput, userid, fetch.resetData);
+              handleAdd(albumInput, userid, coverImage, fetch.resetData);
               setAlbumInput("");
+              setCoverImage("");
             }}
           >
             Add Album

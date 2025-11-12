@@ -81,6 +81,12 @@
       "userid": "3",
       "title": "Investing & Finance",
       "coverPhoto": "https://images.unsplash.com/photo-1559526324-593bc073d938"
+    },
+    {
+      "id": "9d0e",
+      "userid": "3",
+      "title": "David",
+      "coverPhoto": "https://lh3.google.com/u/0/d/1zECvKlOVqjCc2-SRe0YOo_g4YtrSfNfI=w1300-h648-iv1?auditContext=thumbnail&auditContext=forDisplay"
     }
   ],
   "photos": [
@@ -133,8 +139,8 @@
     },
     {
       "id": "3",
-      "username": "finance_guru",
-      "password": "moneySmart789"
+      "username": "rocky",
+      "password": "planet"
     },
     {
       "id": "ce14",
