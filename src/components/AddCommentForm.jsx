@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 
-function AddCommentForm({ postId, currentUser, onAdd }) {
+function AddCommentForm({ postId, currentUser, resetData }) {
   const [text, setText] = useState("");
-
   async function handleAdd() {
     if (!text.trim()) return;
     await fetch("http://localhost:3000/comments", {
@@ -11,7 +10,7 @@ function AddCommentForm({ postId, currentUser, onAdd }) {
       body: JSON.stringify({ postid: postId, userid: currentUser.id, text }),
     });
     setText("");
-    onAdd();
+    resetData();
   }
 
   return (

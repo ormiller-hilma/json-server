@@ -49,7 +49,6 @@ function AlbumsDisplay() {
                 replace: true,
               }
             );
-            // setPage((prev) => prev + 1);
             fetch.resetData();
           }}
         >

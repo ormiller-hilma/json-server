@@ -24,30 +24,24 @@ function PostItem({ post, currentUser, onUpdate }) {
   }
 
   return (
-    <div
-      style={{
-        border: expanded ? "2px solid black" : "1px solid gray",
-        padding: "10px",
-        marginBottom: "5px",
-      }}
-    >
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
+    <div>
+      <div>
         <span>
           <strong>ID: {post.id}</strong> | <span>{post.title}</span>
         </span>
         <div>
           <button onClick={() => setExpanded(!expanded)}>Select</button>
+        </div>
+      </div>
+
+      {expanded && (
+        <div>
           {currentUser.id === post.userid && (
             <>
               <button onClick={deletePost}>Delete</button>
               <button onClick={() => setEditing(!editing)}>Edit</button>
             </>
           )}
-        </div>
-      </div>
-
-      {expanded && (
-        <div style={{ marginTop: "10px" }}>
           {editing ? (
             <>
               <textarea
@@ -67,16 +61,7 @@ function PostItem({ post, currentUser, onUpdate }) {
 
           {showComments && (
             <>
-              <CommentList
-                postId={post.id}
-                currentUser={currentUser}
-                onUpdate={onUpdate}
-              />
-              <AddCommentForm
-                postId={post.id}
-                currentUser={currentUser}
-                onAdd={onUpdate}
-              />
+              <CommentList postId={post.id} currentUser={currentUser} />
             </>
           )}
         </div>

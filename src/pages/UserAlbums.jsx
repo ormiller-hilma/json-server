@@ -7,7 +7,7 @@ function UserAlbums() {
   const location = useLocation();
   const currentPath = location.pathname;
 
-  const fetch = useFetch(`http://localhost:3000/albums?id=${userid}`);
+  const fetch = useFetch(`http://localhost:3000/albums?userid=${userid}`);
   const albumsArray = fetch.data;
 
   return (
