@@ -20,7 +20,7 @@ function TodosDisplay() {
       try {
         setLoading(true);
         const response = await fetch(
-          `http://localhost:3000/todos?userId=${user.id}`
+          `http://localhost:3000/todos?userid=${user.id}`
         );
         if (!response.ok) throw new Error("Failed to load todos");
 
