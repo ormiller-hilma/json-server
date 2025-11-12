@@ -15,6 +15,11 @@ async function handleAdd(data, albumid, resetData) {
   resetData();
 }
 
+async function handleDelete(resetData, photoId) {
+  await fetch(`http://localhost:3000/photos/${photoId}`, { method: "DELETE" });
+  resetData();
+}
+
 function AlbumsDisplay() {
   const { userid, albumid, pageid } = useParams();
   const navigate = useNavigate();
@@ -85,7 +90,13 @@ function AlbumsDisplay() {
           return (
             <Fragment key={`${index} ${pageid - 1}`}>
               <img src={photo.url} style={{ maxWidth: 250, maxHeight: 250 }} />
-              {/* <button onClick={}>Delete</button> */}
+              <button
+                onClick={() => {
+                  handleDelete(fetch.resetData, photo.id);
+                }}
+              >
+                Delete
+              </button>
             </Fragment>
           );
         })}
@@ -104,7 +115,7 @@ function AlbumsDisplay() {
               setImageInput("");
             }}
           >
-            Submit
+            Add Photo
           </button>
         </>
       )}
