@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router";
 import useFetch from "../hooks/UseFetch";
 import { Fragment } from "react";
 import { useState } from "react";
+import "../styles/Album.css";
 
 async function handleAdd(data, albumid, resetData) {
   if (data === "") return;
@@ -85,21 +86,28 @@ function AlbumsDisplay() {
 
       <br />
 
-      {!fetch.loading &&
-        photoArray.map((photo, index) => {
-          return (
-            <Fragment key={`${index} ${pageid - 1}`}>
-              <img src={photo.url} style={{ maxWidth: 250, maxHeight: 250 }} />
-              <button
-                onClick={() => {
-                  handleDelete(fetch.resetData, photo.id);
-                }}
-              >
-                Delete
-              </button>
-            </Fragment>
-          );
-        })}
+      <div className="album-container">
+        {!fetch.loading &&
+          photoArray.map((photo, index) => {
+            return (
+              <Fragment key={`${index} ${pageid - 1}`}>
+                <div className="album">
+                  <img
+                    src={photo.url}
+                    style={{ maxWidth: 250, maxHeight: 250 }}
+                  />
+                  <button
+                    onClick={() => {
+                      handleDelete(fetch.resetData, photo.id);
+                    }}
+                  >
+                    Delete
+                  </button>
+                </div>
+              </Fragment>
+            );
+          })}
+      </div>
 
       {!fetch.loading && (
         <>

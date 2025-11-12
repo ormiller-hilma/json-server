@@ -39,29 +39,31 @@ function UserAlbums() {
   return (
     <>
       <div className="userAlbums">
-        {!fetch.loading &&
-          albumsArray.map((album, index) => {
-            return (
-              <Fragment key={index}>
-                <div className="albums">
-                  <Link to={`${currentPath}/${albumsArray[index].id}/page/1`}>
-                    {album.title}
-                  </Link>
-                  <img
-                    src={album.coverPhoto}
-                    style={{ maxHeight: 150, maxWidth: 150 }}
-                  />
-                  <button
-                    onClick={() => {
-                      handleDelete(fetch.resetData, album.id);
-                    }}
-                  >
-                    Delete
-                  </button>
-                </div>
-              </Fragment>
-            );
-          })}
+        <div className="album-container">
+          {!fetch.loading &&
+            albumsArray.map((album, index) => {
+              return (
+                <Fragment key={index}>
+                  <div className="albums">
+                    <Link to={`${currentPath}/${albumsArray[index].id}/page/1`}>
+                      {album.title}
+                    </Link>
+                    <img
+                      src={album.coverPhoto}
+                      style={{ maxHeight: 150, maxWidth: 150 }}
+                    />
+                    <button
+                      onClick={() => {
+                        handleDelete(fetch.resetData, album.id);
+                      }}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </Fragment>
+              );
+            })}
+        </div>
 
         {!fetch.loading && (
           <>
@@ -71,13 +73,11 @@ function UserAlbums() {
               value={albumInput}
               onChange={(e) => setAlbumInput(e.target.value)}
             />
-            <br />
             <input
               type="text"
               value={coverImage}
               onChange={(e) => setCoverImage(e.target.value)}
             />
-            <br />
             <button
               onClick={() => {
                 handleAdd(albumInput, userid, coverImage, fetch.resetData);
