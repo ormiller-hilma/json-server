@@ -9,7 +9,6 @@ function TodosDisplay() {
   const [todos, setTodos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-
   const [filter, setFilter] = useState("all");
   const [sort, setSort] = useState("");
   const [search, setSearch] = useState("");
