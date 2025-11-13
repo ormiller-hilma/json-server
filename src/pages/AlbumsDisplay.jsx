@@ -21,10 +21,18 @@ async function handleDelete(resetData, photoId) {
   resetData();
 }
 
+function navigatePage(navigate, path) {
+  navigate(path, {
+    replace: true,
+  });
+}
+
 function AlbumsDisplay() {
   const { userid, albumid, pageid } = useParams();
   const navigate = useNavigate();
   const [imageInput, setImageInput] = useState("");
+
+  const path = `/home/users/${userid}/albums/${albumid}/page/`;
 
   const page = Number(pageid);
   const limit = 4;
@@ -48,15 +56,10 @@ function AlbumsDisplay() {
 
       {fetch.loading && <h2>Loading...</h2>}
 
-      {!fetch.loading && pageid - 1 > 0 && (
+      {!fetch.loading && pageid > 1 && (
         <button
           onClick={() => {
-            navigate(
-              `/home/users/${userid}/albums/${albumid}/page/${page - 1}`,
-              {
-                replace: true,
-              }
-            );
+            navigatePage(navigate, path + (page - 1));
             fetch.resetData();
           }}
         >
@@ -64,42 +67,32 @@ function AlbumsDisplay() {
         </button>
       )}
 
-      {!fetch.loading &&
-        photoArray.length >= limit &&
-        !nextFetch.loading &&
-        nextFetch.data.length !== 0 && (
-          <button
-            onClick={() => {
-              navigate(
-                `/home/users/${userid}/albums/${albumid}/page/${page + 1}`,
-                {
-                  replace: true,
-                }
-              );
-              fetch.resetData();
-              nextFetch.resetData();
-            }}
-          >
-            Next
-          </button>
-        )}
+      {!fetch.loading && !nextFetch.loading && nextFetch.data.length !== 0 && (
+        <button
+          onClick={() => {
+            navigatePage(navigate, path + (page + 1));
+            fetch.resetData();
+            nextFetch.resetData();
+          }}
+        >
+          Next
+        </button>
+      )}
 
       <br />
 
       <div className="album-container">
         {!fetch.loading &&
-          photoArray.map((photo, index) => {
+          photoArray.map((photo) => {
             return (
-              <Fragment key={`${index} ${pageid - 1}`}>
+              <Fragment key={photo.id}>
                 <div className="album">
                   <img
                     src={photo.url}
                     style={{ maxWidth: 250, maxHeight: 250 }}
                   />
                   <button
-                    onClick={() => {
-                      handleDelete(fetch.resetData, photo.id);
-                    }}
+                    onClick={() => handleDelete(fetch.resetData, photo.id)}
                   >
                     Delete
                   </button>
